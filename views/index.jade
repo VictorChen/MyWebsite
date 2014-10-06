@@ -1,0 +1,209 @@
+extends layout
+
+// Overwrite the block "content"
+block content
+	.content
+		.left-container
+			.box
+				h2 Welcome to my site!
+				hr
+				p I'm Victor Chen
+			.box
+				h4 About Me
+				hr
+				p Hi, I graduated college with a degree in computer science and engineering. I am currently working
+					| in the tech industry. I enjoy working with javascript (hence the use of node.js).
+					| I'm a big tv/movie person. In fact, I think I'm addicted to netflix... seriously. 
+			.box
+				h4 Contact Me
+				hr
+				p Feel free to contact me for whatever! You can either visit my 
+					a(href='http://www.linkedin.com/in/vichen') LinkedIn 
+					| profile or email me at:
+				li
+					| chen_victor@ymail.com
+		.right-container
+			#banner
+				h2 VrOom VroOm
+				h2 :D
+			#apps
+				h2 Check out my silly apps:
+				#drawapp.app
+					h4 Draw With Friends
+					hr
+					p Umm... this is basically Paint online. You can draw with others in realtime (so fun right?).
+				#weatherapp.app
+					h4 Weather
+					hr
+					p This will give you the weather based on your current location.
+				#app-pic
+			#technologies
+				.box
+					h4 Technologies Used:
+					hr
+					li Node.js
+					li Express
+					li Jade
+					li Stylus
+					li Nib
+					li socket.io
+					li OpenWeatherMap
+					li javascript
+					li jQuery
+		.weather-container
+			#weather-title
+				h2
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+			.weather-day
+				.weather-date
+				.weather-week
+				.weather-img
+				.weather-desc
+				.weather-max
+				.weather-min
+				.weather-humidity
+				.weather-wind
+				.weather-pressure
+		.more-apps
+			.app
+				a(href='files/Snake.zip')
+					h4 Snake
+					hr
+					p This is my first real java program. I made this when I was a freshman in college.
+						|It is a basic snake game where you move with the arrow keys and try to "eat" as much
+						| food as possible without getting into collision with the snake's tail or the wall. The
+						| game will save your high scores to a file. Looking back now, this code is very messy
+						| haha.
+					.image
+						img(src='images/snake.png')
+			.app
+				a(href='files/Tetris.jar')
+					h4 Tetris
+					hr
+					p This is the game that I made during my winter vacation. It is a classic puzzle game.
+						| I added extra features to the game such as score, ghost pieces, and view next
+						| piece.
+					.image
+						img(src='images/tetris.png')
+			.app
+				a(href='files/Maze.jar')
+					h4 Maze
+					hr
+					p This is another program that I made during my winter break. I was interested in
+						| finding the shortest path between two points in a given obstacle. After achieving
+						| that, I decided to test the algorithm out to see how well it works in a given maze.
+						| Generating the maze was another problem I had to solve.
+					.image
+						img(src='images/maze.png')
+			.app
+				a(href='files/Sudoku.jar')
+					h4 Sudoku
+					hr
+					p A sudoku game that generates a valid sudoku board. You can try to solve it or if
+						| you're stuck, you can have the program solve it for you. You can also save your
+						| progress and load it back the next time you decide to play. I remember working on
+						| this program during finals week for fun. It was my excuse for not studying :)
+					.image
+						img(src='images/sudoku.png')
+			.app
+				a(href='files/LongestSequence.jar')
+					h4 Longest Increasing Sequence
+					hr
+					p I was browsing through programming problems and I came across a very interesting
+						| problem. The problem states that given a 2d array of integers, find the longest
+						| path of integers such that each subsequent number is greater than the previous.
+						| I coded the solution out and then later added a gui for it (which is this).
+					.image
+						img(src='images/sequence.png')
+			.app
+				a(href='files/MentalMath.zip')
+					h4 Mental Math
+					hr
+					p I wanted to do basic calculations quicker such as addition or subtraction so I created
+						| this program. This program has a "test" where it will ask you 20 simple addition/subtraction
+						| problems. When you finish, it will save how long it took you to finish and the amount of
+						| questions incorrect. It also has a plot of all your statistics from all your previous games
+						| so you can see whether or not you are improving.
+					.image
+						img(src='images/math.png')
+			.app
+				a(href='files/Tron.jar')
+					h4 Tron
+					hr
+					p Created a tron game where two players will battle head to head. I created this for our
+						| first ACM programming competition. It has all of the base functionalities for the game
+						| of tron to work. The only source files that are missing implmentation are player1.java
+						| and player2.java. The idea is that each person will program their own player AI and then we
+						| put them together and see who has the better AI. I've included an example of two players
+						| battling.
+					.image
+						img(src='images/tron.png')
+			.app
+				a(href='files/Pacman.jar')
+					h4 Pacman
+					hr
+					p This is very similar to the tron game where there are two pacmans in the game. Each pacman
+						| is programmed by one person. The goal is to "eat" more than the other pacman. I coded this
+						| game for our second ACM programming competition. I have included an example of two basic
+						| pacman AIs.
+					.image
+						img(src='images/pacman.png')
