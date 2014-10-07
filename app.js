@@ -18,7 +18,7 @@ var io = require('socket.io').listen(server);
 io.set('transports', ['xhr-polling']);	// web host currently does not support websockets
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon(__dirname + '/public/images/favicon.ico'));
@@ -68,7 +68,7 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/draw', draw.game);
 
-server.listen(app.get('port'), function(){
+server.listen(app.get('port'), process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1', function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });
 
