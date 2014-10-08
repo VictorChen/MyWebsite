@@ -6,17 +6,15 @@ function drawapp(){
 	var id = Math.round($.now()*Math.random()); // Generate a unique ID
 	var clients = {};
 	var drawing = false;
-	var socket = io();
+	var initialized = false;
+	var socket = io.connect('http://localhost', {'forceNew':true });
 	var prev = {};
 	var lastEmit = $.now();	// current time
 	$('#numClients').text("Connecting... Please wait!");
 
-	var reconnect = setInterval(function(){
-		if (!socket.connected){
-			socket.connect();
-		}else{
-			clearInterval(reconnect);
-			$('canvas').css('cursor', 'url("/images/pencil.gif"), auto');
+	function initialize () {
+		if (!initialized) {
+			canvas.addClass('loaded');
 			canvas.on('mousedown', function(e){
 				e.preventDefault();
 				drawing = true;
@@ -28,6 +26,15 @@ function drawapp(){
 					'id': id
 				});
 			});
+			initialized = true;
+		}
+	}
+
+	var reconnect = setInterval(function(){
+		if (!socket.connected){
+			socket.connect();
+		}else{
+			clearInterval(reconnect);
 		}
 	}, 3000);
 
@@ -70,6 +77,7 @@ function drawapp(){
 	});
 
 	socket.on('updateclients', function(numClients){
+		initialize();
 		if (numClients < 2)
 			$('#numClients').text(numClients + " User Connected (invite your friends!)");
 		else

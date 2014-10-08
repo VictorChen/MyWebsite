@@ -10,8 +10,6 @@ var express = require('express'),
 	server = http.createServer(app),
 	io = require('socket.io').listen(server);
 
-//io.set('transports', ['xhr-polling']);	// web host currently does not support websockets
-
 // all environments
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
 app.set('views', __dirname + '/views');
@@ -69,6 +67,7 @@ server.listen(app.get('port'), process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1', f
 // Listen for incoming connections from clients
 var userscount = 0;
 io.sockets.on('connection', function(socket){
+	console.log('new user connected');
 	userscount++;
 	io.sockets.emit('updateclients', userscount);
 	socket.on('mousedown', function(data){
@@ -78,7 +77,9 @@ io.sockets.on('connection', function(socket){
 		socket.broadcast.emit('moving', data);
 	});
 	socket.on('disconnect', function(){
+		console.log('user disconnected');
 		userscount--;
 		io.sockets.emit('updateclients', userscount);
+		socket.disconnect();
 	});
 });
