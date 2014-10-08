@@ -7,7 +7,7 @@ function drawapp(){
 	var clients = {};
 	var drawing = false;
 	var initialized = false;
-	var socket = io.connect('ws://nodejs-victorchen.rhcloud.com:8000/', {'forceNew':true });
+	var socket = io.connect('http://nodejs-victorchen.rhcloud.com:8000/', {'forceNew':true });
 	var prev = {};
 	var lastEmit = $.now();	// current time
 	$('#numClients').text("Connecting... Please wait!");
