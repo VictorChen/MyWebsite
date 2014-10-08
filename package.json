@@ -1,7 +1,6 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Victors-Site",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
   "keywords": [
     "OpenShift",
     "Node.js",
@@ -9,11 +8,9 @@
     "openshift"
   ],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url": "http://www.openshift.com/"
+    "name": "Victor Chen",
+    "email": "chen_victor@ymail.com"
   },
-  "homepage": "http://www.openshift.com/",
   "repository": {
     "type": "git",
     "url": "https://github.com/openshift/origin-server"
@@ -26,10 +23,10 @@
 
   "dependencies": {
     "express": "~3.4.4",
-	"jade": "*",
-    "stylus": "*",
-    "nib": "*",
-	"socket.io": "latest"
+	"jade": "1.7.x",
+    "stylus": "0.49.x",
+    "nib": "1.0.x",
+	"socket.io": "1.1.x"
   },
   "devDependencies": {},
   "bundleDependencies": [],

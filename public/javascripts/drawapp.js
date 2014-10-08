@@ -6,14 +6,14 @@ function drawapp(){
 	var id = Math.round($.now()*Math.random()); // Generate a unique ID
 	var clients = {};
 	var drawing = false;
-	var socket = io.connect();
+	var socket = io();
 	var prev = {};
 	var lastEmit = $.now();	// current time
 	$('#numClients').text("Connecting... Please wait!");
 
 	var reconnect = setInterval(function(){
-		if (!socket.socket.connected){
-			socket.socket.connect();
+		if (!socket.connected){
+			socket.connect();
 		}else{
 			clearInterval(reconnect);
 			$('canvas').css('cursor', 'url("/images/pencil.gif"), auto');

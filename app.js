@@ -1,21 +1,16 @@
+var express = require('express'),
+	routes = require('./routes'),
+	user = require('./routes/user'),
+	draw = require('./routes/draw'),
+	http = require('http'),
+	stylus = require('stylus'),
+	nib = require('nib'),
+	path = require('path'),
+	app = express(),
+	server = http.createServer(app),
+	io = require('socket.io').listen(server);
 
-/**
- * Module dependencies.
- */
-
-var express = require('express')
-	, routes = require('./routes')
-	, user = require('./routes/user')
-	, draw = require('./routes/draw')
-	, http = require('http')
-	, stylus = require('stylus')
-	, nib = require('nib')
-	, path = require('path');
-
-var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
-io.set('transports', ['xhr-polling']);	// web host currently does not support websockets
+//io.set('transports', ['xhr-polling']);	// web host currently does not support websockets
 
 // all environments
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 8080);
@@ -45,16 +40,15 @@ app.use(allowCrossDomain);
 app.use(app.router);
 
 // Stylus + nib
- function compile(str, path) {
-   return stylus(str)
-     .set('filename', path)
-     .set('compress', true)
-     .use(nib())
-     .import('nib');
- }
 app.use(stylus.middleware({
 	src: __dirname + "/public",
-	compile: compile
+	compile: function (str, path) {
+		return stylus(str)
+			.set('filename', path)
+			.set('compress', true)
+			.use(nib())
+			.import('nib');
+	}
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
