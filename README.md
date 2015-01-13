@@ -1,3 +1,5 @@
+## This is my old website, new one is here: https://github.com/VictorChen/VictorChen
+
 MyWebsite
 =========
 
